@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 class Personnage {
-
     public $nom;
     public $age;
     public $sexe;
@@ -36,4 +35,13 @@ class Personnage {
             "intelligence" => 5
         ]);
     }
+
+    public static function getPersonnageParNom($nom) {
+        foreach(self::$personnages as $personnage) {
+            if (strtolower($personnage->nom) === $nom) {
+                return $personnage;
+            }
+        }
+    }
+
 }

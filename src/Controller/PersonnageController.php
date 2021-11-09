@@ -29,4 +29,18 @@ class PersonnageController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route("/personnages/{nom}", name="afficher_personnage")
+     */
+    public function afficherPersonnage($nom): Response
+    {
+        Personnage::creerPersonnages();
+        $personnage = Personnage::getPersonnageParNom($nom);
+        return $this->render('personnage/personnage.html.twig', [
+            "personnage" => $personnage
+        ]);
+
+    }
+    
 }
