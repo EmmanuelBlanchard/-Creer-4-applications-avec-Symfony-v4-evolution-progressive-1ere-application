@@ -21,14 +21,45 @@ class PersonnageController extends AbstractController
      */
     public function personnages(): Response
     {
-        return $this->render('personnage/personnages.html.twig', [
-            "pseudo" => "toto",
+        $joueur1 = [
+            "nom" => "Marc",
             "age" => 25,
+            "sexe" => true,
             "caracteristiques" => [
                 "force" => 3,
                 "agilite" => 2,
                 "intelligence" => 3
             ]
+        ];
+        $joueur2 = [
+            "nom" => "Milo",
+            "age" => 30,
+            "sexe" => true,
+            "caracteristiques" => [
+                "force" => 5,
+                "agilite" => 1,
+                "intelligence" => 2
+            ]
+        ];
+        $joueur3 = [
+            "nom" => "Tya",
+            "age" => 22,
+            "sexe" => false,
+            "caracteristiques" => [
+                "force" => 1,
+                "agilite" => 2,
+                "intelligence" => 5
+            ]
+        ];
+        $joueurs = [
+            "joueur1" => $joueur1,
+            "joueur2" => $joueur2,
+            "joueur3" => $joueur3
+        ];
+
+        return $this->render('personnage/personnages.html.twig', [
+            "joueurs" => $joueurs
         ]);
+
     }
 }
