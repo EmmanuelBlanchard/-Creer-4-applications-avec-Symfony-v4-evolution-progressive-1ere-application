@@ -23,7 +23,6 @@ class PersonnageController extends AbstractController
     public function personnages(): Response
     {
         Personnage::creerPersonnages();
-
         return $this->render('personnage/personnages.html.twig', [
             "joueurs" => Personnage::$personnages
         ]);
